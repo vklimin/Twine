@@ -104,7 +104,7 @@ trait Transformable
         if ($mode == Config\Lowercase::WORDS) {
             // A word is defined as a series of non-space characters. We specifically
             // locate only words needing modification (start with a capital letter).
-            $string = preg_replace_callback('/([A-Z][^\s]*)/', function ($matched) {
+            $string = preg_replace_callback('/(\p{Lu}[^\s]*)/', function ($matched) {
                 return lcfirst($matched[1]);
             }, $this->string);
 
